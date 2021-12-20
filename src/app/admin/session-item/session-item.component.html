@@ -1,0 +1,18 @@
+<h2>{{session.name}}</h2>
+<div>{{session.track}}</div>
+<div>Prévue le {{session.date | date}} pendant {{session.duree}} jours à {{session.adress}} </div>
+<li *ngIf="session.participants < 20; then ok else notok"> </li>
+
+<ng-template #ok> Encore {{20 - session.participants}} places sont disponibles!</ng-template>
+<ng-template #notok>Session Complete!</ng-template>
+
+<div>{{session.participants}} Participants</div>
+<div class="tools">
+<a class="delete" (click)="onDelete()">
+Suppression
+</a>
+<a class="inscrire" >
+Modification
+</a>
+
+</div>
